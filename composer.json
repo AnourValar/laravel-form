@@ -1,0 +1,22 @@
+{
+    "name": "anourvalar/laravel-form",
+    "description": "Laravel blade components for HTML form elements (input / select / textarea)",
+    "keywords": ["laravel", "blade", "component", "form", "input", "select", "textarea", "html", "anourvalar"],
+    "homepage": "https://github.com/AnourValar/laravel-form",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.3.0",
+        "laravel/framework": ">=8.0.0",
+        "anourvalar/config-helper": "^2.3.2"
+    },
+    "autoload": {
+        "psr-4": {"AnourValar\\LaravelForm\\": "src/"}
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AnourValar\\LaravelForm\\Providers\\LaravelFormServiceProvider"
+            ]
+        }
+    }
+}
