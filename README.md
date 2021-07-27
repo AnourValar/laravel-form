@@ -19,29 +19,29 @@ composer require anourvalar/laravel-form
 ### Input
 
 ```php
-<x-form-input type="text" name="foo" value="some text" />
+<x-input type="text" name="foo" value="some text" />
 ```
 
 ```php
-<x-form-input type="checkbox" name="foo" value="1" :checked="$isChecked" />
+<x-input type="checkbox" name="foo" value="1" :checked="$isChecked" />
 ```
 
 ```php
-<x-form-input type="radio" name="foo" value="1" checked-value="2" />
-<x-form-input type="radio" name="foo" value="2" checked-value="2" /> <!-- will be checked -->
-<x-form-input type="radio" name="foo" value="3" checked-value="2" />
+<x-input type="radio" name="foo" value="1" checked-value="2" />
+<x-input type="radio" name="foo" value="2" checked-value="2" /> <!-- will be checked -->
+<x-input type="radio" name="foo" value="3" checked-value="2" />
 ```
 
 
 ### Select
 
 ```php
-<x-form-select name="foo" :options="[1 => ['title' => 'One'], 2 => ['title' => 'Two']]" selected="2" />
+<x-select name="foo" :options="[1 => ['title' => 'One'], 2 => ['title' => 'Two']]" selected="2" />
 ```
 
 
 ### Textarea
 
 ```php
-<x-form-textarea name="foo">Text</x-form-textarea>
+<x-textarea name="foo">Text</x-textarea>
 ```

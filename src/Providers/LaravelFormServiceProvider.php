@@ -20,7 +20,7 @@ class LaravelFormServiceProvider extends ServiceProvider
         // views
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'form');
 
-        $this->loadViewComponentsAs('form', [
+        $this->loadViewComponentsAs(config('form.namespace'), [
             \AnourValar\LaravelForm\Components\Input::class,
             \AnourValar\LaravelForm\Components\Select::class,
             \AnourValar\LaravelForm\Components\Textarea::class,

@@ -2,6 +2,11 @@
 
 return [
     /**
+     * Blade components namespace
+     */
+    'namespace' => '',
+
+    /**
      * Addition class for invalid form elements
      * Null - to disable this feature
      */
