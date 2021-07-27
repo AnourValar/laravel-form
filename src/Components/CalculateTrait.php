@@ -39,7 +39,6 @@ trait CalculateTrait
                     if (array_key_exists($item, (array) $old)) {
                         $old = $old[$item];
                     } else {
-                        //$hasOld = false;
                         $old = null;
                         break;
                     }
