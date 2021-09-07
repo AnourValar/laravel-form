@@ -24,18 +24,25 @@ class Textarea extends Component
     public $readonly;
 
     /**
+     * @var mixed
+     */
+    public $merge;
+
+    /**
      * Create a new component instance.
      *
      * @param mixed $value
      * @param mixed $disabled
      * @param mixed $readonly
+     * @param mixed $merge
      * @return void
      */
-    public function __construct($value = null, $disabled = null, $readonly = null)
+    public function __construct($value = null, $disabled = null, $readonly = null, $merge = null)
     {
         $this->value = $value;
         $this->disabled = $disabled;
         $this->readonly = $readonly;
+        $this->merge = (array) $merge;
     }
 
     /**

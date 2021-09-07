@@ -29,20 +29,27 @@ class Input extends Component
     public $checkedValue;
 
     /**
+     * @var mixed
+     */
+    public $merge;
+
+    /**
      * Create a new component instance.
      *
      * @param mixed $disabled
      * @param mixed $readonly
      * @param mixed $checked
      * @param mixed $checkedValue
+     * @param mixed $merge
      * @return void
      */
-    public function __construct($disabled = null, $readonly = null, $checked = null, $checkedValue = null)
+    public function __construct($disabled = null, $readonly = null, $checked = null, $checkedValue = null, $merge = null)
     {
         $this->disabled = $disabled;
         $this->readonly = $readonly;
         $this->checked = $checked;
         $this->checkedValue = $checkedValue;
+        $this->merge = (array) $merge;
     }
 
     /**

@@ -44,6 +44,11 @@ class Select extends Component
     public $readonly;
 
     /**
+     * @var mixed
+     */
+    public $merge;
+
+    /**
      * Create a new component instance.
      *
      * @param mixed $options
@@ -53,6 +58,7 @@ class Select extends Component
      * @param mixed $selected
      * @param mixed $disabled
      * @param mixed $readonly
+     * @param mixed $merge
      * @return void
      */
     public function __construct(
@@ -62,7 +68,8 @@ class Select extends Component
         $mapping = null,
         $selected = null,
         $disabled = null,
-        $readonly = null
+        $readonly = null,
+        $merge = null
     ) {
         $this->options = $options;
         $this->prepends = $prepends;
@@ -71,6 +78,7 @@ class Select extends Component
         $this->selected = $selected;
         $this->disabled = $disabled;
         $this->readonly = $readonly;
+        $this->merge = (array) $merge;
     }
 
     /**
