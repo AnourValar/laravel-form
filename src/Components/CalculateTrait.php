@@ -26,32 +26,30 @@ trait CalculateTrait
         $hasOld = false;
 
         if ($errors->keys() && $this->attributes->has('name')) {
-            $key = str_replace('.', '<!@#>', $this->attributes['name']);
-            $key = str_replace(['[', ']'], ['.', ''], $key);
+            $key = str_replace(['[', ']'], ['.', ''], $this->attributes['name']);
             $splittedKey = explode('.', $key);
-
-            $key = str_replace('<!@#>', '.', $key);
-            foreach ($splittedKey as &$item) {
-                $item = str_replace('<!@#>', '.', $item);
-            }
-            unset($item);
 
             // old
             if (config('form.old')) {
                 $hasOld = true;
+                $prefix = '';
                 foreach ($splittedKey as $item) {
                     if ($item === '') {
                         break;
                     }
 
-                    if (array_key_exists($item, (array) $old)) {
-                        $old = $old[$item];
+                    if (array_key_exists($prefix.$item, (array) $old)) {
+                        $old = $old[$prefix.$item];
+                        $prefix = '';
                     } else {
-                        $old = null;
-                        if ($required) {
-                            $hasOld = false;
-                        }
-                        break;
+                        $prefix .= $item.'.';
+                    }
+                }
+
+                if ($prefix) {
+                    $old = null;
+                    if ($required) {
+                        $hasOld = false;
                     }
                 }
             }
