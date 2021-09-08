@@ -21,6 +21,11 @@ class Select extends Component
     /**
      * @var mixed
      */
+    public $appends;
+
+    /**
+     * @var mixed
+     */
     public $conditions;
 
     /**
@@ -53,6 +58,7 @@ class Select extends Component
      *
      * @param mixed $options
      * @param mixed $prepends
+     * @param mixed $appends
      * @param mixed $conditions
      * @param mixed $mapping
      * @param mixed $selected
@@ -64,6 +70,7 @@ class Select extends Component
     public function __construct(
         $options = null,
         $prepends = null,
+        $appends = null,
         $conditions = null,
         $mapping = null,
         $selected = null,
@@ -73,6 +80,7 @@ class Select extends Component
     ) {
         $this->options = $options;
         $this->prepends = $prepends;
+        $this->appends = $appends;
         $this->conditions = $conditions;
         $this->mapping = $mapping;
         $this->selected = $selected;
