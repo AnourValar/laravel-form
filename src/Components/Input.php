@@ -72,7 +72,9 @@ class Input extends Component
      */
     public function calculate(\Illuminate\Support\ViewErrorBag $errors, ?array $old, string $slot = null): array
     {
-        $background = $this->getBackground($errors, $old);
+        $type = $this->attributes->has('type') ? mb_strtolower($this->attributes['type']) : null;
+
+        $background = $this->getBackground($errors, $old, !in_array($type, ['radio', 'checkbox']));
         $hasError = $background['hasError'];
         $hasOld = $background['hasOld'];
         $old = $background['old'];
@@ -83,13 +85,13 @@ class Input extends Component
         $value = $hasValue ? $this->attributes['value'] : null;
 
 
-        if ($this->attributes->has('type') && mb_strtolower($this->attributes['type']) == 'radio') {
+        if ($type == 'radio') {
             if ($hasOld) {
                 $checked = ($value == $old);
             } elseif (! is_null($this->checkedValue)) {
                 $checked = ($value == $this->checkedValue);
             }
-        } elseif ($this->attributes->has('type') && mb_strtolower($this->attributes['type']) == 'checkbox' && $errors->keys()) {
+        } elseif ($type == 'checkbox' && $errors->keys()) {
             $checked = $old;
         } elseif ($hasOld && $hasValue) {
             $value = $old;

@@ -17,16 +17,24 @@ trait CalculateTrait
     /**
      * @param \Illuminate\Support\ViewErrorBag $errors
      * @param array $old
+     * @param boolean $required
      * @return array
      */
-    protected function getBackground(\Illuminate\Support\ViewErrorBag $errors, ?array $old): array
+    protected function getBackground(\Illuminate\Support\ViewErrorBag $errors, ?array $old, bool $required): array
     {
         $hasError = false;
         $hasOld = false;
 
         if ($errors->keys() && $this->attributes->has('name')) {
-            $key = str_replace(['[', ']'], ['.', ''], $this->attributes['name']);
+            $key = str_replace('.', '<!@#>', $this->attributes['name']);
+            $key = str_replace(['[', ']'], ['.', ''], $key);
             $splittedKey = explode('.', $key);
+
+            $key = str_replace('<!@#>', '.', $key);
+            foreach ($splittedKey as &$item) {
+                $item = str_replace('<!@#>', '.', $item);
+            }
+            unset($item);
 
             // old
             if (config('form.old')) {
@@ -40,6 +48,9 @@ trait CalculateTrait
                         $old = $old[$item];
                     } else {
                         $old = null;
+                        if ($required) {
+                            $hasOld = false;
+                        }
                         break;
                     }
                 }
