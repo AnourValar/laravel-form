@@ -71,7 +71,7 @@ class Textarea extends Component
         $old = $background['old'];
 
 
-        $value = $hasOld ? $old : ($this->value . $slot);
+        $value = ($hasOld && !is_array($old)) ? $old : ($this->value . $slot);
 
 
         if ($this->disabled) {

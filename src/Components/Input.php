@@ -93,7 +93,7 @@ class Input extends Component
             }
         } elseif ($type == 'checkbox' && $errors->keys()) {
             $checked = $old;
-        } elseif ($hasOld && $hasValue) {
+        } elseif ($hasOld && $hasValue && !is_array($old)) {
             $value = $old;
         }
 
