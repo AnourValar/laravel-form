@@ -7,6 +7,16 @@ use Illuminate\Support\ServiceProvider;
 class LaravelFormServiceProvider extends ServiceProvider
 {
     /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+
+    }
+
+    /**
      * Bootstrap any application services.
      *
      * @return void
@@ -25,15 +35,5 @@ class LaravelFormServiceProvider extends ServiceProvider
             \AnourValar\LaravelForm\Components\Select::class,
             \AnourValar\LaravelForm\Components\Textarea::class,
         ]);
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-
     }
 }

@@ -79,6 +79,8 @@ trait CalculateTrait
 
         if (! $hasOld) {
             $old = null;
+        } elseif (is_string($old)) {
+            $old = e($old);
         }
 
         return compact('hasError', 'hasOld', 'old');
