@@ -17,7 +17,7 @@ trait CalculateTrait
     /**
      * @param \Illuminate\Support\ViewErrorBag $errors
      * @param array $old
-     * @param boolean $required
+     * @param bool $required
      * @return array
      */
     protected function getBackground(\Illuminate\Support\ViewErrorBag $errors, ?array $old, bool $required): array

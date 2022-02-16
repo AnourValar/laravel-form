@@ -34,6 +34,11 @@ class Input extends Component
     public $merge;
 
     /**
+     * @var mixed
+     */
+    public $error;
+
+    /**
      * Create a new component instance.
      *
      * @param mixed $disabled
@@ -41,15 +46,17 @@ class Input extends Component
      * @param mixed $checked
      * @param mixed $checkedValue
      * @param mixed $merge
+     * @param mixed $error
      * @return void
      */
-    public function __construct($disabled = null, $readonly = null, $checked = null, $checkedValue = null, $merge = null)
+    public function __construct($disabled = null, $readonly = null, $checked = null, $checkedValue = null, $merge = null, $error = null)
     {
         $this->disabled = $disabled;
         $this->readonly = $readonly;
         $this->checked = $checked;
         $this->checkedValue = $checkedValue;
         $this->merge = (array) $merge;
+        $this->error = $error;
     }
 
     /**
@@ -75,7 +82,7 @@ class Input extends Component
         $type = $this->attributes->has('type') ? mb_strtolower($this->attributes['type']) : null;
 
         $background = $this->getBackground($errors, $old, !in_array($type, ['radio', 'checkbox']));
-        $hasError = $background['hasError'];
+        $hasError = is_null($this->error) ? $background['hasError'] : ((bool) $this->error);
         $hasOld = $background['hasOld'];
         $old = $background['old'];
 

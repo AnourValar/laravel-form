@@ -29,20 +29,27 @@ class Textarea extends Component
     public $merge;
 
     /**
+     * @var mixed
+     */
+    public $error;
+
+    /**
      * Create a new component instance.
      *
      * @param mixed $value
      * @param mixed $disabled
      * @param mixed $readonly
      * @param mixed $merge
+     * @param mixed $error
      * @return void
      */
-    public function __construct($value = null, $disabled = null, $readonly = null, $merge = null)
+    public function __construct($value = null, $disabled = null, $readonly = null, $merge = null, $error = null)
     {
         $this->value = $value;
         $this->disabled = $disabled;
         $this->readonly = $readonly;
         $this->merge = (array) $merge;
+        $this->error = $error;
     }
 
     /**
@@ -66,7 +73,7 @@ class Textarea extends Component
     public function calculate(\Illuminate\Support\ViewErrorBag $errors, ?array $old, string $slot = null): array
     {
         $background = $this->getBackground($errors, $old, true);
-        $hasError = $background['hasError'];
+        $hasError = is_null($this->error) ? $background['hasError'] : ((bool) $this->error);
         $hasOld = $background['hasOld'];
         $old = $background['old'];
 
