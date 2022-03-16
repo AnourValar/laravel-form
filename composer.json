@@ -5,9 +5,9 @@
     "homepage": "https://github.com/AnourValar/laravel-form",
     "license": "MIT",
     "require": {
-        "php": ">=7.3.0",
-        "laravel/framework": ">=8.0.0",
-        "anourvalar/config-helper": "^3.0"
+        "php": ">=8.0",
+        "laravel/framework": ">=8.0",
+        "anourvalar/config-helper": "^3.1"
     },
     "autoload": {
         "psr-4": {"AnourValar\\LaravelForm\\": "src/"}

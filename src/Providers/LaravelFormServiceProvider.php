@@ -34,6 +34,7 @@ class LaravelFormServiceProvider extends ServiceProvider
             \AnourValar\LaravelForm\Components\Input::class,
             \AnourValar\LaravelForm\Components\Select::class,
             \AnourValar\LaravelForm\Components\Textarea::class,
+            \AnourValar\LaravelForm\Components\Hidden::class,
         ]);
     }
 }
