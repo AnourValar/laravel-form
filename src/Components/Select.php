@@ -117,7 +117,7 @@ class Select extends Component
      */
     public function calculate(\Illuminate\Support\ViewErrorBag $errors, ?array $old, string $slot = null): array
     {
-        $background = $this->getBackground($errors, $old, false);
+        $background = $this->getBackground($errors, $old, !$this->attributes['multiple']);
         $hasError = is_null($this->error) ? $background['hasError'] : ((bool) $this->error);
         $hasOld = $background['hasOld'];
         $old = $background['old'];
