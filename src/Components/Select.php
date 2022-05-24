@@ -123,6 +123,13 @@ class Select extends Component
         $old = $background['old'];
 
 
+        if (is_array($old)) {
+            foreach ($old as $item) {
+                if (is_array($item)) {
+                    $hasOld = false;
+                }
+            }
+        }
         $selected = $hasOld ? $old : $this->selected;
 
 
