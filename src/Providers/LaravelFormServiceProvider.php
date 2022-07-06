@@ -13,7 +13,8 @@ class LaravelFormServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        // config
+        $this->mergeConfigFrom(__DIR__.'/../resources/config/form.php', 'form');
     }
 
     /**
@@ -24,7 +25,6 @@ class LaravelFormServiceProvider extends ServiceProvider
     public function boot()
     {
         // config
-        $this->mergeConfigFrom(__DIR__.'/../resources/config/form.php', 'form');
         $this->publishes([ __DIR__.'/../resources/config/form.php' => config_path('form.php')], 'config');
 
         // views
