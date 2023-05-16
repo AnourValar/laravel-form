@@ -98,9 +98,11 @@ class Input extends Component
             } elseif (! is_null($this->checkedValue)) {
                 $checked = ($value == $this->checkedValue);
             }
-        } elseif ($type == 'checkbox' && $errors->keys()) {
-            $checked = $old;
-        } elseif ($hasOld && $hasValue && !is_array($old)) {
+        } elseif ($type == 'checkbox') {
+            if ($hasOld) {
+                $checked = $old;
+            }
+        } elseif ($hasOld && $hasValue && ! is_array($old)) {
             $value = $old;
         }
 
