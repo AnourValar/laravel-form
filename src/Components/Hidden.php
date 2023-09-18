@@ -14,7 +14,7 @@ class Hidden extends Component
     /**
      * Create a new component instance.
      *
-     * @param mixed $data
+     * @param array|null $data
      * @return void
      */
     public function __construct(array $data = null)
