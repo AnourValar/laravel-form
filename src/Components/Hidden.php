@@ -12,14 +12,21 @@ class Hidden extends Component
     public $data;
 
     /**
+     * @var array
+     */
+    public $prefix;
+
+    /**
      * Create a new component instance.
      *
      * @param array|null $data
+     * @param array|string|null $prefix
      * @return void
      */
-    public function __construct(array $data = null)
+    public function __construct(array $data = null, array|string $prefix = null)
     {
         $this->data = (array) $data;
+        $this->prefix = (array) $prefix;
     }
 
     /**
@@ -29,7 +36,7 @@ class Hidden extends Component
      */
     public function render()
     {
-        return $this->walk($this->data);
+        return $this->walk($this->data, $this->prefix);
     }
 
     /**
