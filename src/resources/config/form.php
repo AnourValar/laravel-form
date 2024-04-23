@@ -10,7 +10,7 @@ return [
      * Addition class for invalid form elements
      * Null - to disable this feature
      */
-    'error' => 'is-invalid',
+    'error' => null,
 
     /**
      * Replacement to the old values on validation failure
