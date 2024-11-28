@@ -9,10 +9,10 @@ trait CalculateTrait
      *
      * @param \Illuminate\Support\ViewErrorBag $errors
      * @param array $old
-     * @param string $slot
+     * @param string|null $slot
      * @return array
      */
-    abstract public function calculate(\Illuminate\Support\ViewErrorBag $errors, ?array $old, string $slot = null): array;
+    abstract public function calculate(\Illuminate\Support\ViewErrorBag $errors, ?array $old, ?string $slot = null): array;
 
     /**
      * @param \Illuminate\Support\ViewErrorBag $errors

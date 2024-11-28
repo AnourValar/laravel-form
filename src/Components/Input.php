@@ -74,10 +74,10 @@ class Input extends Component
      *
      * @param \Illuminate\Support\ViewErrorBag $errors
      * @param array $old
-     * @param string $slot
+     * @param string|null $slot
      * @return array
      */
-    public function calculate(\Illuminate\Support\ViewErrorBag $errors, ?array $old, string $slot = null): array
+    public function calculate(\Illuminate\Support\ViewErrorBag $errors, ?array $old, ?string $slot = null): array
     {
         $type = $this->attributes->has('type') ? mb_strtolower($this->attributes['type']) : null;
 

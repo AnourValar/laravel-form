@@ -23,7 +23,7 @@ class Hidden extends Component
      * @param array|string|null $prefix
      * @return void
      */
-    public function __construct(array $data = null, array|string $prefix = null)
+    public function __construct(?array $data = null, array|string|null $prefix = null)
     {
         $this->data = (array) $data;
         $this->prefix = (array) $prefix;
