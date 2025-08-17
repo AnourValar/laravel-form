@@ -25,7 +25,7 @@ class LaravelFormServiceProvider extends ServiceProvider
     public function boot()
     {
         // config
-        $this->publishes([ __DIR__.'/../resources/config/form.php' => config_path('form.php')], 'config');
+        $this->publishes([__DIR__.'/../resources/config/form.php' => config_path('form.php')], 'config');
 
         // views
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'form');
