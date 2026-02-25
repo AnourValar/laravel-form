@@ -9,7 +9,11 @@
       $symbol = '₽';
   }
 
-  $display = rtrim(rtrim(isset($amount) ? Number::format($amount, locale: config('app.locale'), precision: $precision) : $default, '0'), '.,');
+  if (isset($amount)) {
+    $display = rtrim(rtrim(Number::format($amount, locale: config('app.locale'), precision: $precision), '0'), '.,');
+  } else {
+    $display = $default;
+  }
 @endphp
 
 @if ($colored && $amount > 0)
