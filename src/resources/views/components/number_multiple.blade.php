@@ -1,8 +1,8 @@
-@props(['value', 'default' => 0, 'symbol' => '', 'trim' => true, 'colored' => false, 'precision' => 2])
+@props(['value', 'default' => 0, 'symbol' => '', 'trim' => true, 'colored' => false])
 @inject('numberHelper', AnourValar\LaravelAtom\Helpers\NumberHelper::class)
 
 @php
-  $display = isset($value) ? $numberHelper->formatNumber($value, $precision, null, $trim) : $default;
+  $display = isset($value) ? $numberHelper->formatMultiple($value, null, $trim) : $default;
   $compare = isset($value) ? bccomp($value, 0) : null;
 @endphp
 
