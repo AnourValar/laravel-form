@@ -2,7 +2,7 @@
 @inject('numberHelper', AnourValar\LaravelAtom\Helpers\NumberHelper::class)
 
 @php
-  $display = isset($value) ? $numberHelper->formatNumber($value, $precision, null, $trim) : $default;
+  $display = isset($value) ? $numberHelper->formatNumber($value, $precision, $trim) : $default;
   $compare = isset($value) ? bccomp($value, 0) : null;
 @endphp
 
