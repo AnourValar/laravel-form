@@ -8,9 +8,7 @@
       }
 
       if (! isset($entity)) {
-        $entity = explode('\\', get_class($value));
-        $entity = array_pop($entity);
-        $entity = Str::snake($entity);
+        $entity = $value->getMorphClass();
       }
 
       $deleted = false;
