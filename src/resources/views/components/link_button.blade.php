@@ -10,7 +10,7 @@
   }
 @endphp
 
-@if ($value && Auth::user()->can("{$namespace}.{$entity}.show"))
+@if ($value && Auth::user()->can("{$namespace}.{$entity}.show|{$namespace}.{$entity}.read"))
   <a
     href="{{ route($namespace . '.' . $entity . '.edit', [$entity => $value]) }}"
     class="btn btn-outline-primary"

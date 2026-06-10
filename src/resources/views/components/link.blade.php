@@ -21,7 +21,7 @@
 
 @if (! $value)
   {{ $default }}
-@elseif (Auth::user()->can("{$namespace}.{$entity}.show"))
+@elseif (Auth::user()->can("{$namespace}.{$entity}.show|{$namespace}.{$entity}.read"))
   @php
     $class = $deleted ? 'underline line-through' : 'underline';
   @endphp
