@@ -1,8 +1,9 @@
-@props(['value'])
+@props(['value', 'title' => null, 'style' => 'light'])
 
 @if ($value)
-  <div class="alert alert-light alert-dismissible fade show alert-blocks fade-in" role="alert">
+  <div class="alert alert-{{ $style }} alert-dismissible fade show alert-blocks fade-in" role="alert">
     <div>
+        {!! $title !!}
         <div id="qrcode-{{ sha1($value) }}"></div>
     </div>
     <button
