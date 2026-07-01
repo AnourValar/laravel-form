@@ -1,4 +1,8 @@
-@props(['route', 'request', 'attribute'])
+@props(['route' => null, 'request', 'attribute'])
+
+@php
+  $route ??= request()->route()->getName();
+@endphp
 
 @if ($request->sort($attribute) == 'DESC')
   <a class="badge badge-primary" href="{{ route($route, ['filter' => $request->filter(), 'relation' => $request->relation(), 'scope' => $request->scope(), 'sort' => [$attribute => 'ASC']]) }}">
